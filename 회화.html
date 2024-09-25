@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const pages = [
+            {
+                title: '카블회 1',
+                content: ``
+            },
+            {
+                title: '카블회 2',
+                content: ``
+            },
+            {
+                title: '카블회 3',
+                content: ``
+            },
+            {
+                title: '카블회 4',
+                content: ``
+            },
+            {
+                title: '카블회 5',
+                content: ``
+            },
+            {
+                title: '카블회 6',
+                content: ``
+            },
+            {
+                title: '카블회 7',
+                content: ``
+            },
+            {
+                title: '카블회 8',
+                content: ``
+            },
+            {
+                title: '카블회 9',
+                content: ``
+            },
+            {
+                title: '카블회 10',
+                content: ``
+            },
+
+        
+        ];
+
+        function loadRandomPage() {
+            const randomPage = pages[Math.floor(Math.random() * pages.length)];
+            document.title = randomPage.title; // 페이지 제목 변경
+            document.body.querySelector('p').innerText = randomPage.content; // 본문 내용 변경
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // F5 키를 눌렀을 때 랜덤 페이지 내용 변경
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'F5') {
+                    event.preventDefault(); // 기본 동작 방지
+                    loadRandomPage();
+                }
+            });
+
+            // 페이지 새로 고침 버튼 클릭 시 랜덤 페이지로 이동
+            const refreshButton = document.createElement('button');
+            refreshButton.innerText = "페이지 새로 고침";
+            refreshButton.onclick = loadRandomPage;
+            document.body.appendChild(refreshButton);
+
+            // 처음 로드 시 랜덤 페이지 내용 로드
+            loadRandomPage();
+        });
+    </script>
+</head>
+<body>
+    <p></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
